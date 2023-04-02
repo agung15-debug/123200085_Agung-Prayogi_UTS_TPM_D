@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts/dashboard.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -7,6 +8,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      drawer: NavigationDrawer(),
       appBar: AppBar(
         title: const Text('Profile'),
         centerTitle: true,

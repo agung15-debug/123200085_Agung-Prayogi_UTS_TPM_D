@@ -22,24 +22,27 @@ class _DashboardState extends State<Dashboard> {
         centerTitle: true,
       ),
       drawer: NavigationDrawer(),
-      body: Container(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Trapesium()));
-                  },
-                  child: Text('Trapesium')),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Tabung()));
-                  },
-                  child: Text('Tabung')),
-            ]),
+      body: Center(
+        child: Container(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Trapesium()));
+                    },
+                    child: Text('Trapesium')),
+                SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Tabung()));
+                    },
+                    child: Text('Tabung')),
+              ]),
+        ),
       ),
     ));
   }
@@ -72,7 +75,7 @@ Widget buildMenuItem(BuildContext context) => Padding(
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Bangun Datar'),
-            onTap: () => Navigator.push(
+            onTap: () => Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => Dashboard(),
@@ -82,7 +85,7 @@ Widget buildMenuItem(BuildContext context) => Padding(
           ListTile(
             leading: Icon(Icons.calendar_view_month),
             title: Text('Kalender'),
-            onTap: () => Navigator.push(
+            onTap: () => Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => Calendar(),
@@ -92,23 +95,33 @@ Widget buildMenuItem(BuildContext context) => Padding(
           ListTile(
             leading: Icon(Icons.person),
             title: Text('Profile'),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Profile(),
-              ),
-            ),
+            onTap: () {
+              //close drawer
+              Navigator.pop(context);
+
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Profile(),
+                ),
+              );
+            },
           ),
           Divider(color: Colors.black),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Logout'),
-            onTap: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => LoginPage(),
-              ),
-            ),
+            onTap: () {
+              //close drawer
+              Navigator.pop(context);
+
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ),
+              );
+            },
           ),
         ],
       ),
