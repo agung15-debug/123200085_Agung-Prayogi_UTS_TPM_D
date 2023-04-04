@@ -63,8 +63,40 @@ class NavigationDrawer extends StatelessWidget {
 }
 
 Widget buildHeader(BuildContext context) => Container(
+      color: Colors.green,
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top,
+      ),
+      child: Column(
+        children: [
+          Container(
+            width: 100,
+            height: 100,
+            margin: EdgeInsets.only(top: 30, bottom: 16),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage('assets/images/profil.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Text(
+            'Agung Prayogi',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            '123200085',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: 20),
+        ],
       ),
     );
 
