@@ -75,22 +75,32 @@ Widget buildMenuItem(BuildContext context) => Padding(
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Bangun Datar'),
-            onTap: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Dashboard(),
-              ),
-            ),
+            onTap: () {
+              //close drawer
+              Navigator.pop(context);
+
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Dashboard(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.calendar_view_month),
             title: Text('Kalender'),
-            onTap: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Calendar(),
-              ),
-            ),
+            onTap: () {
+              //close drawer
+              Navigator.pop(context);
+
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Calendar(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.person),
